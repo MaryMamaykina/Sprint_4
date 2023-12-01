@@ -42,6 +42,8 @@ public class ImportantQuestionsTest {
     }
 
     @Test
+    //Проверка выпадающего списка в разделе «Вопросы о важном».
+    //Проверка того, что когда нажимаешь на стрелочку, открывается соответствующий текст.
     public void accordionItemTest() {
         MainPage objMainPage = new MainPage(webDriver);
         objMainPage.openPage();

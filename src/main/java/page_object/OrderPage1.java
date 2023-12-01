@@ -28,22 +28,27 @@ public class OrderPage1 {
     //Локатор кнопки далее
     private final By buttonNext = By.xpath("//button[text()='Далее']");
 
+    //Ожидание загрузки страницы
     public void waitForLoadingPage1(){
         new WebDriverWait(webDriver, Duration.ofMillis(500L))
                 .until(ExpectedConditions.elementToBeClickable(buttonNext));
     }
+    //Заполнение поля Имя
     public void fillName(String text){
         clickField(userName);
         addTextIntoField(userName, text);
     }
+    //Заполнение поля Фамилия
     public void fillLastName(String text){
         clickField(userLastName);
         addTextIntoField(userLastName, text);
     }
+    //Заполнение поля Адрес: куда привезти заказ
     public void fillAddress(String text){
         clickField(userAddress);
         addTextIntoField(userAddress, text);
     }
+    //Выбор станции метро
     public void selectMetroStation(String stationName){
 
         clickField(userMetroStation);
@@ -52,10 +57,12 @@ public class OrderPage1 {
         scrollToNeededLocator(metroStationLocator);
         clickField(metroStationLocator);
     }
+    //Заполнение поля Телефон
     public void fillPhone(String text){
         clickField(userPhoneNumber);
         addTextIntoField(userPhoneNumber, text);
     }
+    //Нажатие кнопки Далее
     public void clickNext(){
         clickField(buttonNext);
     }

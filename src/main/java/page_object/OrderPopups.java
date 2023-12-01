@@ -16,11 +16,13 @@ public class OrderPopups {
     private final By buttonYes = By.xpath("//div[@class='Order_Modal__YZ-d3']/div[@class='Order_Buttons__1xGrp']/button[text()='Да']");
     private final By titleFourthPage = By.xpath("//div[text()='Заказ оформлен']");
 
+    //Нажатие на согласие сделать заказ
     public void agreeToMakeOrder(){
         new WebDriverWait(webDriver, Duration.ofMillis(3000L))
                 .until(ExpectedConditions.visibilityOfElementLocated(titleThirdPage));
         webDriver.findElement(buttonYes).click();
     }
+    //Ожидание появления попапа с заголовком "Заказ оформлен"
     public void waitForSuccessPopup(){
         new WebDriverWait(webDriver, Duration.ofMillis(3000L))
                 .until(ExpectedConditions.visibilityOfElementLocated(titleFourthPage));

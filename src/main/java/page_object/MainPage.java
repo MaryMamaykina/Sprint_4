@@ -20,7 +20,7 @@ public class MainPage {
     //Локатор попапа куки
     private final By cookiesPopup = By.id("rcc-confirm-button");
 
-    //Открываем главную страницу сайта
+    //Открытие главной страницы сайта
     public void openPage() {
         webDriver.get("https://qa-scooter.praktikum-services.ru/");
     }
@@ -31,6 +31,7 @@ public class MainPage {
         waitForHeadingClickHappen(index);
         return getPanelText(index);
     }
+    //Нажатие на согласие на использование куки
     public void agreeToCookiesIfNeeded(){
         if (!webDriver.findElements(cookiesPopup).isEmpty()){
             webDriver.findElement(cookiesPopup).click();
@@ -47,28 +48,28 @@ public class MainPage {
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", webDriver.findElement(buttonOrderBellow));
         webDriver.findElement(buttonOrderBellow).click();
     }
-
+    //Получение локатор для вопроса в списке
     private By getHeadingLocator(int index){
         return By.id("accordion__heading-" + index);
     }
-    //Получаем локатора текста, который появляется по клику в разделе «Вопросы о важном»
+    //Получение локатора текста, который появляется по клику в разделе «Вопросы о важном»
     private By getPanelLocator(int index){
         return By.id("accordion__panel-" + index);
     }
-    //Скроллим до нужного элемента раздела «Вопросы о важном»
+    //Скролл до нужного элемента раздела «Вопросы о важном»
     private void scrollToItem(int index) {
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", webDriver.findElement(getHeadingLocator(index)));
     }
-    //Кликаем на заголовок элемента
+    //Клик на заголовок элемента
     private void clickOnHeading(int index) {
         webDriver.findElement(getHeadingLocator(index)).click();
     }
-    //Ждем появления текста
+    //Ожидание появления текста
     private void waitForHeadingClickHappen(int index) {
         new WebDriverWait(webDriver, Duration.ofMillis(500L))
                 .until(ExpectedConditions.attributeToBe(getHeadingLocator(index), "aria-disabled", "true"));
     }
-    //Получаем текст
+    //Получение текста
     private String getPanelText(int index) {
         return webDriver.findElement(getPanelLocator(index)).getText();
     }

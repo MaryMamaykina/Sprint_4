@@ -19,6 +19,7 @@ public class OrderTest {
     }
 
     @Test
+    //Проверка работы функции заказ самоката с помощью кнопки Заказать, расположенной сверху страницы
     public void shouldMakeOrderWithButtonOrderOnTop() {
 
         MainPage objMainPage = new MainPage(webDriver);
@@ -47,6 +48,7 @@ public class OrderTest {
         objOrderPage3.waitForSuccessPopup();
     }
     @Test
+    //Проверка работы функции заказ самоката с помощью кнопки Заказать, расположенной над вопросами о важном
     public void shouldMakeOrderWithButtonOrderBellow() {
 
         MainPage objMainPage = new MainPage(webDriver);

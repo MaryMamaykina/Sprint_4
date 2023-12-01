@@ -24,16 +24,19 @@ public class OrderPage2 {
     //выпадающий список Сроков аренды
     private final By dropdownListRentalPeriod = By.className("Dropdown-menu");
 
+    //Ожидание загрузки страницы
     public void waitForLoading() {
         new WebDriverWait(webDriver, Duration.ofMillis(500L))
                 .until(ExpectedConditions.elementToBeClickable(buttonOrder));
     }
+    //Выбор даты доставки самоката
     public void selectData(int number){
         clickField(fieldOrderDate);
         waitFieldBeClickable(listOfOrderDate);
         By locatorData = By.xpath("//div[text()='" + number + "']");
         clickField(locatorData);
     }
+    //Выбор периода аренды самоката
     public void selectRentalPeriod(String option){
         clickField(fieldRentalPeriod);
         new WebDriverWait(webDriver, Duration.ofMillis(500L))
@@ -41,10 +44,12 @@ public class OrderPage2 {
         By locatorData = By.xpath("//div[text()='"+option+"']");
         clickField(locatorData);
     }
+    //Выбор цвета
     public void selectColour(String colour){
         By locatorColour = By.id(colour);
         clickField(locatorColour);
     }
+    //Нажатие кнопки Далее
     public void clickButtonOrder(){
         clickField(buttonOrder);
     }
